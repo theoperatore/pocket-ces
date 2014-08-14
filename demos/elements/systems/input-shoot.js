@@ -10,8 +10,8 @@ exports.actionEach = function(pkt, entity, position) {
     pkt.entity(null, {
       'bullet' : null,
       'position' : {
-        x  : position.p.x + 20,
-        y  : position.p.y,
+        x : position.p.x + 20,
+        y : position.p.y,
         ddx : 0.002
       },
       'shape' : {

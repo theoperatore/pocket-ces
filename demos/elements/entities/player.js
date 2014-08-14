@@ -13,7 +13,9 @@ module.exports = function(pkt) {
     },
     'thrust' : null,
     'aabb' : {
-      anchor : pkt.firstData('ctx').center
+      anchor : pkt.firstData('ctx').center,
+      width : 40,
+      height: 80
     },
     'destructable' : null,
     'score' : null

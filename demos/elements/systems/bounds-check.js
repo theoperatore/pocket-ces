@@ -4,15 +4,15 @@ exports.actionEach = function(pkt, entity, position, aabb) {
 
   var bounds = pkt.firstData('ctx');
 
-  if (aabb.left < 0) {
-    position.p.x = 5;
+  if (aabb.left <= 0) {
+    position.p.x = (aabb.width / 2) + 1;
     position.v.x *= -0.5;
     
     aabb.anchor = position.p;
     aabb.computeAABB();
   }
 
-  if (aabb.right > bounds.width) {
+  if (aabb.right >= bounds.width) {
     position.p.x = bounds.width - (aabb.width / 2) - 2;
     position.v.x *= -0.5;
 
@@ -20,15 +20,15 @@ exports.actionEach = function(pkt, entity, position, aabb) {
     aabb.computeAABB();
   }
 
-  if (aabb.top < 0) {
-    position.p.y = 5;
+  if (aabb.top <= 0) {
+    position.p.y = (aabb.height / 2) + 1;
     position.v.y *= -0.5;
 
     aabb.anchor = position.p;
     aabb.computeAABB();
   }
 
-  if (aabb.bottom > bounds.height) {
+  if (aabb.bottom >= bounds.height) {
     position.p.y = bounds.height - (aabb.height / 2) - 2;
     position.v.y *= -0.5;
 

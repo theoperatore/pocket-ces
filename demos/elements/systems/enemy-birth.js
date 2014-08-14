@@ -4,7 +4,6 @@ exports.actionEach = function(pkt, entity, position, timer) {
 
   if (timer.count >= timer.max) {
 
-    console.log('emitting enemy');
     // birth enemy in current location!
     pkt.entity(null, {
       'enemy' : null,
