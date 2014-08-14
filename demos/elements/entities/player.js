@@ -5,9 +5,10 @@ module.exports = function(pkt) {
     'position' : null,
     'shape' : {
       os_points : [
-        {x:  20, y:   0},
-        {x: -20, y: -40},
         {x:   0, y:   0},
+        {x:  20, y:   0},
+        //{x: -20, y: -40},
+        //{x:   0, y:   0},
         {x: -20, y:  40}
       ]
     },
@@ -18,8 +19,10 @@ module.exports = function(pkt) {
       height: 80
     },
     'destructable' : {
-      value : 3
+      value : 1
     },
-    'score' : null
+    'score' : null,
+    'color' : null,
+    'upgrade' : null
   });
 };

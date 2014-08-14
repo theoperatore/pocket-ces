@@ -21,7 +21,7 @@ exports.action = function(pkt, entities, aabbs, shapes, hps) {
     var pHP = hps[player.id];
     pHP.value -= 1;
     if (pHP.value <= 0) {
-      pkt.immediatelyDestroyEntityById(player.id);
+      //pkt.immediatelyDestroyEntityById(player.id);
     }
     
     pkt.destroyEntityById(e.id);

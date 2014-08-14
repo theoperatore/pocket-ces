@@ -62,6 +62,8 @@ module.exports = function(p) {
 
   p.cmp('shape', function(cmp, opts) {
     cmp.os_points = opts.os_points || [];
+    cmp.up_points = opts.up_points || null;
+    cmp.up_color  = opts.up_color || "#333333";
   });
 
   p.cmp('thrust', function(cmp, opts) {
@@ -91,12 +93,26 @@ module.exports = function(p) {
     cmp.value = opts.value || 2;
   });
 
-  p.cmp('label', function(cmp, opts) {
-    cmp.value = opts.value || "#";
+  p.cmp('upgrade', function(cmp, opts) {
+    cmp.totals = {
+      'fire'  : { current : 0, total : 0},
+      'water' : { current : 1, total : 1},
+      'earth' : { current : 0, total : 0},
+      'air'   : { current : 0, total : 0},
+      'void'  : { current : 0, total : 0},
+    };
   });
 
   p.cmp('score', function(cmp, opts) {
     cmp.value = opts.value || 0;
+  });
+
+  p.cmp('color', function(cmp, opts) {
+    cmp.value = opts.value || "#333333";
+  });
+
+  p.cmp('element', function(cmp, opts) {
+    cmp.value = opts.value || "white";
   });
 
   p.cmp('timer', function(cmp, opts) {

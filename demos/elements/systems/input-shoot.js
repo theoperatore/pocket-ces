@@ -27,7 +27,8 @@ exports.actionEach = function(pkt, entity, position) {
         anchor : { x:position.p.x + 20, y:position.p.y },
         height : 10,
         width : 20
-      }
+      },
+      'color' : null
     });
 
   }

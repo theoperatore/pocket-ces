@@ -10,7 +10,7 @@ exports.actionEach = function(pkt, entity, position, timer) {
       'position' : {
         x  : position.p.x,
         y  : position.p.y,
-        dx : -1
+        dx : -0.25
       },
       'aabb' : {
         anchor : position.p,
@@ -27,8 +27,9 @@ exports.actionEach = function(pkt, entity, position, timer) {
         ]
       },
       'destructable' : {
-        value : 5
-      }
+        value : 1
+      },
+      'color' : null
     });
 
     //move to a different location!

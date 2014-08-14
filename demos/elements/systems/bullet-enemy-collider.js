@@ -24,19 +24,61 @@ exports.action = function(pkt, entities, aabbs, hps) {
       }
 
       eHP.value -= 1;
-      pkt.destroyEntityById(b.id);
-
       if (eHP.value <= 0) {
 
-        //
-        //
-        // TODO: Add a score to the player!
-        //
-        //
-        
+        var scores = pkt.indexedData('score'),
+            player = pkt.entitiesMatching('player-controlled')[0];
+        scores[player.id].value += 10;
+
+        var num = Math.round(Math.random() * 100);
+        if (num <= 50) {
+
+          var elemNum = Math.round(Math.random() * 3);
+          var elem = 'white';
+          switch(elemNum) {
+            case 0: color = "red"; elem = "fire"; break;
+            case 1: color = "blue"; elem = "water"; break;
+            case 2: color = "yellow"; elem = "earth"; break;
+            case 3: color = "green"; elem = "air"; break;
+          }
+
+          var voidNum = Math.round(Math.random() * 100);
+          if (voidNum <= 5) {
+            elem = "void";
+            color = "purple";
+          }
+
+          pkt.entity(null, {
+            'powerup' : null,
+            'position' : {
+              x : bAABB.anchor.x,
+              y : bAABB.anchor.y
+            },
+            'shape' : {
+              os_points : [
+                {x :  10, y :   0},
+                {x :   0, y : -10},
+                {x : -10, y :   0},
+                {x :   0, y :  10}
+              ]
+            },
+            'aabb' : {
+              anchor : bAABB.anchor,
+              width : 20,
+              height : 20
+            },
+            'color' : {
+              value : color
+            },
+            'element' : {
+              value : elem
+            }
+          });
+        }
         pkt.destroyEntityById(e.id);
       }
 
+      pkt.destroyEntityById(b.id);
       break;
 
     }
