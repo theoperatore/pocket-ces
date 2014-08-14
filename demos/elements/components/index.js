@@ -33,13 +33,13 @@ module.exports = function(p) {
       cmp.cvs.getContext('2d').scale(ratio,ratio);
     }
 
-    cmp.center = { 
-      x: (dpr !== bsr) ? cmp.cvs.width / 4  : cmp.cvs.width / 2,
-      y: (dpr !== bsr) ? cmp.cvs.height / 4 : cmp.cvs.height / 2
-    }
-
     cmp.width = (dpr !== bsr) ? cmp.cvs.width / 2 : cmp.cvs.width;
     cmp.height = (dpr !== bsr) ? cmp.cvs.height / 2 : cmp.cvs.height;
+
+    cmp.center = { 
+      x: cmp.width / 2,
+      y: cmp.height / 2
+    }
   });
   
   p.cmp('input-manager', function(cmp, opts) {
