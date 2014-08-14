@@ -8,6 +8,9 @@ require("./components/")(p);
 p.entity(null, {'ctx' : null });
 require('./entities/player')(p);
 require('./entities/enemy-factory')(p);
+require('./entities/enemy-factory')(p);
+require('./entities/enemy-factory')(p);
+require('./entities/enemy-factory')(p);
 
 // build systems
 p.sysFromObj(require('./systems/euler-update'));

@@ -36,7 +36,7 @@ exports.actionEach = function(pkt, entity, position, timer) {
 
     //reset timer
     timer.count = 0;
-    timer.max = 1 * 60;
+    timer.max = 0.5 * 60;
   }
   else {
     timer.count++;

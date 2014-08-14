@@ -24,7 +24,9 @@ exports.actionEach = function(pkt, entity, position) {
         ]
       },
       'aabb' : {
-        anchor : { x:position.p.x + 20, y:position.p.y }
+        anchor : { x:position.p.x + 20, y:position.p.y },
+        height : 10,
+        width : 20
       }
     });
 
