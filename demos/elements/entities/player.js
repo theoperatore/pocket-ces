@@ -17,7 +17,9 @@ module.exports = function(pkt) {
       width : 40,
       height: 80
     },
-    'destructable' : null,
+    'destructable' : {
+      value : 3
+    },
     'score' : null
   });
 };

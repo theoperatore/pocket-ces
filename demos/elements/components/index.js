@@ -88,7 +88,7 @@ module.exports = function(p) {
   });
 
   p.cmp('destructable', function(cmp, opts) {
-    cmp.hp = opts.hp || 2;
+    cmp.value = opts.value || 2;
   });
 
   p.cmp('label', function(cmp, opts) {

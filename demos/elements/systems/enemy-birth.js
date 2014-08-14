@@ -10,7 +10,7 @@ exports.actionEach = function(pkt, entity, position, timer) {
       'position' : {
         x  : position.p.x,
         y  : position.p.y,
-        dx : -1
+        dx : -0.33
       },
       'aabb' : {
         anchor : position.p,
@@ -27,7 +27,7 @@ exports.actionEach = function(pkt, entity, position, timer) {
         ]
       },
       'destructable' : {
-        hp : 1
+        value : 5
       }
     });
 
