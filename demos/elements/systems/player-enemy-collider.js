@@ -18,18 +18,13 @@ exports.action = function(pkt, entities, aabbs, shapes, hps) {
       continue;
     }
 
-    var eHP = hps[e.id];
-    eHP.value -= 1;
-    if (eHP.value <= 0) {
-      pkt.destroyEntityById(e.id);
-    }
-
     var pHP = hps[player.id];
     pHP.value -= 1;
     if (pHP.value <= 0) {
-      //pkt.destroyEntityById(player.id);
+      pkt.immediatelyDestroyEntityById(player.id);
     }
-
+    
+    pkt.destroyEntityById(e.id);
     break;
   }
 

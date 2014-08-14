@@ -1,5 +1,6 @@
 var Pocket = require('../../lib/pocket'),
-    p = new Pocket();
+    p = new Pocket(),
+    gameover = new Pocket();
 
 // bind components to pocket
 require("./components/")(p);
@@ -30,5 +31,10 @@ p.tick(16);
 
 (function engage() { 
   requestAnimationFrame(engage);
-  p.tick(16); 
+  if (p.firstEntity('player-controlled')) {
+    p.tick(16); 
+  }
+  else {
+    gameover.tick(16);
+  }
 })();

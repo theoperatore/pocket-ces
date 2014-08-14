@@ -10,7 +10,7 @@ exports.actionEach = function(pkt, entity, position, timer) {
       'position' : {
         x  : position.p.x,
         y  : position.p.y,
-        dx : -0.33
+        dx : -1
       },
       'aabb' : {
         anchor : position.p,
