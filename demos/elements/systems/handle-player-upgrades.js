@@ -90,35 +90,41 @@ exports.actionEach = function(pkt, entity, aabb, shape, hp, upgrades, bShape) {
   }
 
   // handle option upgrades - green
+  if (upgrades.totals.air.current === 1) {}
+  else if (upgrades.totals.air.current === 2) {}
+  else if (upgrades.totals.air.current === 3) {}
 
   // handle shield? upgrades - yellow
+  if (upgrades.totals.earth.current === 1) {}
+  else if (upgrades.totals.earth.current === 2) {}
+  else if (upgrades.totals.earth.current === 3) {}
 
   // handle bullet shape upgrades - red
   if (upgrades.totals.fire.current === 2) {
     bShape.points = [
       {x:  15, y:   0},
-      {x:  -5, y: -15},
-      {x:  -5, y:  15}
+      {x:  -5, y: -30},
+      {x:  -5, y:  30}
     ];
-    bShape.height = 30;
+    bShape.height = 60;
     bShape.width = 20;
   }
 
   //kamehameha blast!
   else if (upgrades.totals.fire.current === 3) {
     bShape.points = [
-      {x:  20, y:   0},
-      {x: -30, y: -40},
-      {x: -15, y:  -5},
-      {x: -20, y: -15},
-      {x:  -5, y:  -5},
-      {x: -40, y:   0},
-      {x:  -5, y:   5},
-      {x: -20, y:  15},
-      {x: -15, y:   5},
-      {x: -30, y:  40}
+      {x:  40, y:   0},
+      {x: -10, y: -60},
+      {x:   5, y:  -5},
+      {x:   0, y: -15},
+      {x:  15, y:  -5},
+      {x: -20, y:   0},
+      {x:  15, y:   5},
+      {x:   0, y:  15},
+      {x:   5, y:   5},
+      {x: -10, y:  60}
     ];
-    bShape.height = 80;
+    bShape.height = 120;
     bShape.width = 40;
   }
 

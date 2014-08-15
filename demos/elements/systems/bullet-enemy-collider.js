@@ -32,7 +32,7 @@ exports.action = function(pkt, entities, aabbs, hps) {
         scores[player.id].value += 10;
 
         var num = Math.round(Math.random() * 100);
-        if (num <= 50) {
+        if (num <= 6) {
 
           var elemNum = Math.round(Math.random() * 3);
           var elem = 'white';
@@ -44,7 +44,7 @@ exports.action = function(pkt, entities, aabbs, hps) {
           }
 
           var voidNum = Math.round(Math.random() * 100);
-          if (voidNum <= 5) {
+          if (voidNum <= 4) {
             elem = "void";
             color = "purple";
           }
