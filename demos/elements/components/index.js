@@ -108,6 +108,7 @@ module.exports = function(p) {
     cmp.width = opts.width || 20;
     cmp.height = opts.height || 10;
     cmp.color = opts.color || "#333333";
+    cmp.vulcan = opts.vulcan || true;
   });
 
   p.cmp('score', function(cmp, opts) {

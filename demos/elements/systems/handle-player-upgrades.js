@@ -108,7 +108,7 @@ exports.actionEach = function(pkt, entity, aabb, shape, hp, upgrades, bShape) {
   else if (upgrades.totals.fire.current === 3) {
     bShape.points = [
       {x:  20, y:   0},
-      {x: -30, y: -30},
+      {x: -30, y: -40},
       {x: -15, y:  -5},
       {x: -20, y: -15},
       {x:  -5, y:  -5},
@@ -116,14 +116,11 @@ exports.actionEach = function(pkt, entity, aabb, shape, hp, upgrades, bShape) {
       {x:  -5, y:   5},
       {x: -20, y:  15},
       {x: -15, y:   5},
-      {x: -30, y:  30}
+      {x: -30, y:  40}
     ];
-    bShape.height = 60;
+    bShape.height = 80;
     bShape.width = 40;
   }
-
-  //rapid fire?
-  else if (upgrades.totals.fire.current === 4) {}
 
   // handle damage upgrades - purple
   // change color of bullets to indicate damage?
