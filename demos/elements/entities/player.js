@@ -2,7 +2,9 @@ module.exports = function(pkt) {
   return pkt.entity(null, {
     'player-controlled' : null,
     'input-manager': null,
-    'position' : null,
+    'position' : {
+      x : 60
+    },
     'shape' : {
       os_points : [
         {x:   0, y:   0},

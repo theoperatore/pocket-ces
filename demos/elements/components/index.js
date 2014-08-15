@@ -68,7 +68,7 @@ module.exports = function(p) {
 
   p.cmp('thrust', function(cmp, opts) {
     cmp.value = opts.value || 0.002;
-    cmp.drag = opts.value || 0.95;
+    cmp.drag = opts.drag || 0.95;
   });
 
   p.cmp('aabb', function(cmp, opts) {

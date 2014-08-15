@@ -29,6 +29,53 @@ exports.actionEach = function(pkt, entity, position, shape, upgrade) {
       'color' : shape.color
     });
 
+    if (upgrade.totals.air.current >= 1) {
+
+      var option = pkt.firstEntity('option1');
+      var o_pos = pkt.dataFor(option,'position');
+
+      pkt.entity(null, {
+        'bullet' : null,
+        'position' : {
+          x : o_pos.p.x + 20,
+          y : o_pos.p.y,
+          ddx : 0.002
+        },
+        'shape' : {
+          os_points : shape.points
+        },
+        'aabb' : {
+          anchor : { x: o_pos.p.x + 20, y:o_pos.p.y },
+          height : shape.height,
+          width : shape.width
+        },
+        'color' : shape.color
+      });
+    }
+
+    if (upgrade.totals.air.current >= 2) {
+      var option = pkt.firstEntity('option2');
+      var o_pos = pkt.dataFor(option,'position');
+
+      pkt.entity(null, {
+        'bullet' : null,
+        'position' : {
+          x : o_pos.p.x + 20,
+          y : o_pos.p.y,
+          ddx : 0.002
+        },
+        'shape' : {
+          os_points : shape.points
+        },
+        'aabb' : {
+          anchor : { x: o_pos.p.x + 20, y:o_pos.p.y },
+          height : shape.height,
+          width : shape.width
+        },
+        'color' : shape.color
+      });
+    }
+
     shape.vulcan = false;
 
   }
