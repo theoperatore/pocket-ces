@@ -6,9 +6,8 @@ exports.actionEach = function(pkt, entity, score, hp) {
 
   target.ctx.beginPath();
   target.ctx.font = "30pt Arial";
-  //target.ctx.fillStyle = "#00bfff";
+  target.ctx.fillStyle = "#333333";
   target.ctx.fillText(score.value, target.width/2, 40);
-  target.ctx.fill();
 
   for (var i = 0; i < hp.value; i++) {
 

@@ -1,6 +1,6 @@
 exports.name = 'input-shoot';
-exports.reqs = ['position', 'player-controlled'];
-exports.actionEach = function(pkt, entity, position) {
+exports.reqs = ['position', 'bullet-shape', 'player-controlled'];
+exports.actionEach = function(pkt, entity, position, shape) {
 
   var input = pkt.firstData('input-manager');
 
@@ -15,20 +15,14 @@ exports.actionEach = function(pkt, entity, position) {
         ddx : 0.002
       },
       'shape' : {
-        os_points : [
-          {x:  10, y:  0},
-          {x:  10, y: -5},
-          {x: -10, y: -5},
-          {x: -10, y:  5},
-          {x:  10, y:  5}
-        ]
+        os_points : shape.points
       },
       'aabb' : {
         anchor : { x:position.p.x + 20, y:position.p.y },
-        height : 10,
-        width : 20
+        height : shape.height,
+        width : shape.width
       },
-      'color' : null
+      'color' : shape.color
     });
 
   }

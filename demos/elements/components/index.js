@@ -95,12 +95,19 @@ module.exports = function(p) {
 
   p.cmp('upgrade', function(cmp, opts) {
     cmp.totals = {
-      'fire'  : { current : 0, total : 0},
-      'water' : { current : 1, total : 1},
+      'fire'  : { current : 1, total : 0},
+      'water' : { current : 1, total : 0},
       'earth' : { current : 0, total : 0},
       'air'   : { current : 0, total : 0},
-      'void'  : { current : 0, total : 0},
+      'void'  : { current : 1, total : 0},
     };
+  });
+
+  p.cmp('bullet-shape', function(cmp, opts) {
+    cmp.points = opts.points || [];
+    cmp.width = opts.width || 20;
+    cmp.height = opts.height || 10;
+    cmp.color = opts.color || "#333333";
   });
 
   p.cmp('score', function(cmp, opts) {

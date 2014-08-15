@@ -23,11 +23,12 @@ exports.action = function(pkt, entities, aabbs, hps) {
         continue;
       }
 
-      eHP.value -= 1;
+      var player = pkt.entitiesMatching('player-controlled')[0];
+      var damage = pkt.indexedData('upgrade')[player.id].totals['void'].current;
+      eHP.value -= damage;
       if (eHP.value <= 0) {
 
-        var scores = pkt.indexedData('score'),
-            player = pkt.entitiesMatching('player-controlled')[0];
+        var scores = pkt.indexedData('score');
         scores[player.id].value += 10;
 
         var num = Math.round(Math.random() * 100);
@@ -51,8 +52,9 @@ exports.action = function(pkt, entities, aabbs, hps) {
           pkt.entity(null, {
             'powerup' : null,
             'position' : {
-              x : bAABB.anchor.x,
-              y : bAABB.anchor.y
+              x  : bAABB.anchor.x,
+              y  : bAABB.anchor.y,
+              dx : -0.125
             },
             'shape' : {
               os_points : [

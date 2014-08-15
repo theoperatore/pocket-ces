@@ -10,7 +10,6 @@ exports.action = function(pkt, entities, positions, shapes, colors) {
     pos = positions[e.id];
     shape = shapes[e.id];
 
-
     //draw upgrade points if shape has them
     if (shape.up_points) {
       ctx.ctx.beginPath();

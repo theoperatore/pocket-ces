@@ -23,6 +23,17 @@ module.exports = function(pkt) {
     },
     'score' : null,
     'color' : null,
-    'upgrade' : null
+    'upgrade' : null,
+    'bullet-shape' : {
+      points : [
+        {x:  10, y:  0},
+        {x:  10, y: -5},
+        {x: -10, y: -5},
+        {x: -10, y:  5},
+        {x:  10, y:  5}
+      ],
+      width: 20,
+      height: 10
+    }
   });
 };
