@@ -104,6 +104,12 @@ exports.actionEach = function(pkt, entity, position, aabb, shape, hp, upgrades, 
           height : 50,
           width : 50
         },
+        'spring' : {
+          target : {
+            x : position.p.x - 30,
+            y : position.p.y - 100
+          }
+        },
         'thrust' : {
           value : 0.002,
           drag : 0.95
@@ -134,6 +140,12 @@ exports.actionEach = function(pkt, entity, position, aabb, shape, hp, upgrades, 
           height : 50,
           width : 50
         },
+        'spring' : {
+          target : {
+            x : position.p.x - 30,
+            y : position.p.y + 100
+          }
+        },
         'thrust' : {
           value : 0.002,
           drag : 0.95
@@ -150,6 +162,8 @@ exports.actionEach = function(pkt, entity, position, aabb, shape, hp, upgrades, 
       });
     }
   }
+
+  //rotate options around player?
   else if (upgrades.totals.air.current === 3) {}
 
   // handle shield? upgrades - yellow

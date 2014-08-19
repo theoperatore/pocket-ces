@@ -5,41 +5,33 @@ module.exports = function(p) {
     
     // setup the canvas
     cmp.cvs = document.createElement('canvas');
-    cmp.ctx = cmp.cvs.getContext('2d');
     document.body.appendChild(cmp.cvs);
+    
+    var hdify = require('hd-canvas');
+    cmp.cvs = hdify(cmp.cvs, window.innerWidth, window.innerHeight);
+    cmp.ctx = cmp.cvs.getContext('2d');
 
-    // super hd awesome canvas
-    var width  = window.innerWidth;
-    var height = window.innerHeight;
+    cmp.width  = parseInt(cmp.cvs.style.width)  || cmp.cvs.width;
+    cmp.height = parseInt(cmp.cvs.style.height) || cmp.cvs.height;
 
-    var dpr = window.devicePixelRatio || 1,
-        bsr = cmp.ctx.webkitBackingStorePixelRatio ||
-        cmp.ctx.mozBackingStorePixelRatio    ||
-        cmp.ctx.msBackingStorePixelRatio     ||
-        cmp.ctx.oBackingStorePixelRatio      ||
-        cmp.ctx.backingStorePixelRatio       ||
-        1;
+    cmp.center = {
+      x : cmp.width / 2,
+      y : cmp.height / 2
+    };
 
-    var ratio = dpr / bsr;
+    // handle canvas resize
+    window.addEventListener('resize', function(ev) {
+      cmp.cvs = hdify(cmp.cvs, window.innerWidth, window.innerHeight);
+      cmp.width  = parseInt(cmp.cvs.style.width)  || cmp.cvs.width;
+      cmp.height = parseInt(cmp.cvs.style.height) || cmp.cvs.height;
 
-    if (dpr !== bsr) {
+      cmp.center = {
+        x : cmp.width / 2,
+        y : cmp.height / 2
+      };
 
-      cmp.cvs.width  = width * ratio;
-      cmp.cvs.height = height * ratio;
+    });
 
-      cmp.cvs.style.width  = (width) + "px";
-      cmp.cvs.style.height = (height) + "px";
-
-      cmp.cvs.getContext('2d').scale(ratio,ratio);
-    }
-
-    cmp.width = (dpr !== bsr) ? cmp.cvs.width / 2 : cmp.cvs.width;
-    cmp.height = (dpr !== bsr) ? cmp.cvs.height / 2 : cmp.cvs.height;
-
-    cmp.center = { 
-      x: cmp.width / 2,
-      y: cmp.height / 2
-    }
   });
   
   p.cmp('input-manager', function(cmp, opts) {
@@ -69,6 +61,12 @@ module.exports = function(p) {
   p.cmp('thrust', function(cmp, opts) {
     cmp.value = opts.value || 0.002;
     cmp.drag = opts.drag || 0.95;
+  });
+
+  p.cmp('spring', function(cmp, opts) {
+    cmp.stiff = opts.stiff || 0.01;
+    cmp.damp = opts.damp || 0.9;
+    cmp.target = opts.target || {x : 0, y: 0};
   });
 
   p.cmp('aabb', function(cmp, opts) {
@@ -127,5 +125,11 @@ module.exports = function(p) {
     cmp.max = (opts.max * 60) || (5 * 60);
     cmp.count = opts.count || 0;
     cmp.complete = opts.complete || false;
+  });
+
+  p.cmp('difficulty', function(cmp, opts) {
+    cmp.timer_max = opts.timer_max || 1 * 60;
+    cmp.enemy_speed = opts.enemy_speed || -0.25;
+    cmp.enemy_health = opts.enemy_health || 1;
   });
 }

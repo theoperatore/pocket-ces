@@ -1,6 +1,6 @@
 exports.name = 'enemy-birth';
-exports.reqs = ['position', 'timer', 'enemy-factory'];
-exports.actionEach = function(pkt, entity, position, timer) {
+exports.reqs = ['position', 'timer', 'difficulty', 'enemy-factory'];
+exports.actionEach = function(pkt, entity, position, timer, difficulty) {
 
   if (timer.count >= timer.max) {
 
@@ -10,7 +10,8 @@ exports.actionEach = function(pkt, entity, position, timer) {
       'position' : {
         x  : position.p.x,
         y  : position.p.y,
-        dx : -0.25
+        //dx : -0.25
+        dx : difficulty.enemy_speed
       },
       'aabb' : {
         anchor : position.p,
@@ -27,7 +28,7 @@ exports.actionEach = function(pkt, entity, position, timer) {
         ]
       },
       'destructable' : {
-        value : 1
+        value : difficulty.enemy_health
       },
       'color' : null
     });
@@ -37,7 +38,8 @@ exports.actionEach = function(pkt, entity, position, timer) {
 
     //reset timer
     timer.count = 0;
-    timer.max = 0.5 * 60;
+    //timer.max = 0.5 * 60;
+    timer.max = difficulty.timer_max;
   }
   else {
     timer.count++;

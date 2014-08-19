@@ -9,17 +9,18 @@ require("./components/")(p);
 p.entity(null, {'ctx' : null });
 require('./entities/player')(p);
 require('./entities/enemy-factory')(p);
-//require('./entities/enemy-factory')(p);
-//require('./entities/enemy-factory')(p);
-//require('./entities/enemy-factory')(p);
-//require('./entities/enemy-factory')(p);
-//require('./entities/enemy-factory')(p);
+require('./entities/enemy-factory')(p);
+require('./entities/enemy-factory')(p);
+require('./entities/enemy-factory')(p);
+require('./entities/enemy-factory')(p);
+require('./entities/enemy-factory')(p);
 
 // build systems
 p.sysFromObj(require('./systems/euler-update'));
 p.sysFromObj(require('./systems/input-accelerate'));
 p.sysFromObj(require('./systems/input-shoot'));
 p.sysFromObj(require('./systems/object-culler'));
+p.sysFromObj(require('./systems/spring-updater'));
 p.sysFromObj(require('./systems/bullet-enemy-collider'));
 p.sysFromObj(require('./systems/player-enemy-collider'));
 p.sysFromObj(require('./systems/player-powerup-collider'));

@@ -1,5 +1,6 @@
 module.exports = function(pkt) {
   return pkt.entity(null, {
+    'player' : null,
     'player-controlled' : null,
     'input-manager': null,
     'position' : {
