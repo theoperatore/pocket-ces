@@ -5,6 +5,10 @@ module.exports = function(p) {
     
     // setup the canvas
     cmp.cvs = document.createElement('canvas');
+
+    cmp.cvs.width = window.innerWidth;
+    cmp.cvs.height = window.innerWidth;
+    
     document.body.appendChild(cmp.cvs);
     
     var hdify = require('hd-canvas');
