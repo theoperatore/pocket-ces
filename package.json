@@ -16,7 +16,7 @@
   "author": "Drew Petersen <kirbysayshi@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "hd-canvas": "^0.1.5"
+    "hd-canvas": "^0.1.5",
     "beefy": "~2.1.1",
     "browserify": "^4.1.7",
     "marked": "~0.3.2"
